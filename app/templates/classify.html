@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog or Cat </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <h3 style="margin: auto;width: 80%; text-align: center; margin-top: 10px;  text-transform: uppercase">Cat or Dog </h3>
+<div style="width: 90%; margin: auto; text-align: center">
+    <img src="{{ url_for('send_file', filename=image_file_name)}}" style ="max-width: 500px; max-height: 450px; margin-top: 30px; margin-bottom: 10px">
+    <p style="font-style: italic">{{ image_file_name }}</p>
+
+    
+    <h2><b>I'm <span style="color: green;">{{ prob }} %</span> sure this is a
+        <span style="color: red;">{{ label }}</span></b></h2>
+        <br>
+      <h5 style="font-size: 2rem">Reupload image if prediction incorrect</h5> 
+        <form action="/savedog" method="post" id="form1" enctype="multipart/form-data">
+          <input style="margin: auto;width: 80%; text-align: center; margin-left: 480px" name = "image" id="image-file" type="file"/>
+          <input name = "image" id="btn-submit3" type="submit" value="submit as dog" />
+        </form>
+        <br>
+        <br>
+        <br>
+        <form action="/savecat" method="post" id="form2" enctype="multipart/form-data">
+          <input style="margin: auto;width: 80%; text-align: center; margin-left: 480px" name = "image" id="image-file" type="file"/>
+          <input name = "image" id="btn-submit4" type="submit" value="submit as cat" />
+        </form>
+    <br>
+    <a href="/" class="button is-danger is-inverted is-outlined" style="font-size:1.5rem">Back to Home</a>
+     
+</div>
+</body>
+
+</html>
